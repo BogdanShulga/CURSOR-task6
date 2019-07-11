@@ -9,12 +9,15 @@ public class Main {
 
         Set<Integer> set = new TreeSet<>((Integer o1, Integer o2) -> {
 
-            boolean one = o1 % 2 == 0;
-            boolean two = o2 % 2 == 0;
+            boolean o1even = o1 % 2 == 0;
+            boolean o2even = o2 % 2 == 0;
 
-            if (one & two | !one & !two) {
+            boolean bothEven = o1even & o2even;
+            boolean bothOdd = !o1even & !o2even;
+
+            if (bothEven | bothOdd) {
                 return o1.compareTo(o2);
-            } else if (one & !two) {
+            } else if (o1even & !o2even) {
                 return -1;
             } else {
                 return 1;
